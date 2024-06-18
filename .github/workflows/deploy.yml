@@ -34,7 +34,7 @@ jobs:
       - name: Cleanup Files
         run: |
           rm -rf node_modules
-          find . -type f ! -name 'index.html' !  -name '*.js' -delete
+          find . -type f ! -name 'index.html' ! -name '*.js' ! -name '*.map' -delete
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
