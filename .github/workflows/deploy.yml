@@ -31,6 +31,10 @@ jobs:
           npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      - name: Cleanup Files
+        run: |
+          find . -type d ! -name 'dist' -depth -exec rmdir {} \; 2>/dev/null
+          find . -type f ! -name 'index.html' !  -name '*.js' -delete
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
